@@ -9,12 +9,14 @@
     <title>Login</title> 
 </head>
 
+<html>
 <body>
-    <form action="index.php" method="POST"> 
-    Usuário: <input type="text" name="usuario"><br>
+<form action="index.php" method="POST">
+    Usuario: <input type="text" name="usuario"><br>
     Senha: <input type="text" name="senha"><br>
     <input type="submit" value="Acessar">
-    </form>
+</form>
 </body>
+</html>
 
 </html>
