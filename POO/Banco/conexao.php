@@ -8,4 +8,5 @@ $conexao = new PDO($dsn, $user, $pass);
 
 $conexao -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-var_dump($conexao);
+//var_dump($conexao); 
+//Exibe se ta conectado ou não
