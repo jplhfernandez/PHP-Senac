@@ -22,7 +22,6 @@
         $senha = "";
         $emailantigo = "";
     }
-    var_dump($nome);
 ?>
 
 <html>
