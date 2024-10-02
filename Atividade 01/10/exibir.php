@@ -6,6 +6,16 @@ $query = 'SELECT * FROM usuario';
 $retorno = $conexao -> query($query);
 $registros = $retorno -> fetchAll(PDO::FETCH_ASSOC);
 
+echo '
+    <a href="index.php">
+        <button type="button">
+            Inserir
+        </button>
+    </a>
+    <br>
+    ';
+
+
 foreach ($registros as $registro) 
 {
     echo 'Nome: '.$registro['nome'];
@@ -14,7 +24,7 @@ foreach ($registros as $registro)
     echo '<br><a href="atualizar.php?email='.$registro['email'];
     echo '"><img src="img/editar.png" width=2%></a>';
     echo '&nbsp&nbsp';
-    //echo '<br><a href:"';
-    echo '<img src = "img/deletar.png" width=2%></a>';
+    echo '<br><a href="deletar.php?email='.$registro['email'];
+    echo '"><img src = "img/deletar.png" width=2%></a>';
     echo '<hr width=30% align="left">';
 }
