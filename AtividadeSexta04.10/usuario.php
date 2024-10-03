@@ -7,15 +7,18 @@ class Usuario {
     public $email;
     private $senha;
 
-    public function __construct($nome, $email, $senha) {
-        $this->id = uniqid();
+    public function __construct($nome, $email, $senha) 
+    {
+        $this->id = uniqid(); //gera um id unico
         $this->nome = $nome;
         $this->email = $email;
-        $this->senha = password_hash($senha, PASSWORD_DEFAULT);
+        $this->senha = password_hash($senha, PASSWORD_DEFAULT); //criptografa a senha 
     }
 
-    public function registrar() {
-        if (!isset($_SESSION['usuarios'])) {
+    public function registrar() 
+    {
+        if (!isset($_SESSION['usuarios'])) 
+        {
             $_SESSION['usuarios'] = [];
         }
         $_SESSION['usuarios'][] = [
@@ -32,6 +35,7 @@ class Usuario {
         
         foreach ($_SESSION['usuarios'] as $usuario) {
             if ($usuario['email'] === $email && password_verify($senha, $usuario['senha'])) {
+                /*Verifica email e a senha com criptografia*/
                 $_SESSION['usuario_logado'] = $usuario;
                 return true;
             }
