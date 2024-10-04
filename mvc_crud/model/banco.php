@@ -24,9 +24,9 @@ class Banco{
     }
 
     public function getLivro(){
-        $result = this -> mysqli -> query("SELECT * FROM livros");
+        $result = $this -> mysqli -> query("SELECT * FROM livros");
         while ($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-            array[] = $row;
+            $array[] = $row;
         }
         return $array;
     }
@@ -37,8 +37,23 @@ class Banco{
     }
 
     public function deleteLivro($id){
-        if ($this -> mysqli -> query("DELETE FROM 'livros' WHERE 'nome' = '".$id"';")) {
-            # code...
+        if ($this -> mysqli -> query("DELETE FROM 'livros' WHERE 'nome' = '".$id."';")==true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function updateLivro($nome, $autor, $quantidade, $preco, $flag, $data, $id){
+        $stmt = $this->mysqli->prepare("UPDATE 'livros' SET 'nome' = ?, 'autor' = ?, 'quantidade'=?, 'preco'=?, 'flag'=?, 'data'=? WHERE 'nome' =?");
+        $stmt -> bind_param("sssssss" ,$nome, $autor, $quantidade, $preco, $flag, $data, $id);
+        if ($stmt->execute()==true) {
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }
+?>
