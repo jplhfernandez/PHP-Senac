@@ -2,7 +2,6 @@
 session_start();
 require 'Usuario.php';
 require 'Tarefa.php';
-require 'Comentario.php';
 
 if (!Usuario::usuarioLogado()) {
     header('Location: index.php');

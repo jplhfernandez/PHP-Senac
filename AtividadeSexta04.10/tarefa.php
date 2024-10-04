@@ -9,7 +9,8 @@ class Tarefa {
     public $prioridade;
     public $usuarioId;
 
-    public function __construct($titulo, $descricao, $dataVencimento, $status, $prioridade, $usuarioId) {
+    public function __construct($titulo, $descricao, $dataVencimento, $status, $prioridade, $usuarioId) 
+    {
         $this->id = uniqid();
         $this->titulo = $titulo;
         $this->descricao = $descricao;
@@ -19,8 +20,10 @@ class Tarefa {
         $this->usuarioId = $usuarioId;
     }
 
-    public function criar() {
-        if (!isset($_SESSION['tarefas'])) {
+    public function criar() 
+    {
+        if (!isset($_SESSION['tarefas'])) 
+        {
             $_SESSION['tarefas'] = [];
         }
         $_SESSION['tarefas'][] = [
@@ -34,7 +37,8 @@ class Tarefa {
         ];
     }
 
-    public static function listar($usuarioId) {
+    public static function listar($usuarioId) 
+    {
         if (!isset($_SESSION['tarefas'])) return [];
         
         return array_filter($_SESSION['tarefas'], function($tarefa) use ($usuarioId) {
@@ -42,9 +46,12 @@ class Tarefa {
         });
     }
 
-    public static function editar($tarefaId, $titulo, $descricao, $dataVencimento, $status, $prioridade) {
-        foreach ($_SESSION['tarefas'] as &$tarefa) {
-            if ($tarefa['id'] === $tarefaId) {
+    public static function editar($tarefaId, $titulo, $descricao, $dataVencimento, $status, $prioridade) 
+    {
+        foreach ($_SESSION['tarefas'] as &$tarefa) 
+        {
+            if ($tarefa['id'] === $tarefaId) 
+            {
                 $tarefa['titulo'] = $titulo;
                 $tarefa['descricao'] = $descricao;
                 $tarefa['dataVencimento'] = $dataVencimento;
@@ -55,8 +62,10 @@ class Tarefa {
         }
     }
 
-    public static function excluir($tarefaId) {
-        $_SESSION['tarefas'] = array_filter($_SESSION['tarefas'], function($tarefa) use ($tarefaId) {
+    public static function excluir($tarefaId) 
+    {
+        $_SESSION['tarefas'] = array_filter($_SESSION['tarefas'], function($tarefa) use ($tarefaId) 
+        {
             return $tarefa['id'] !== $tarefaId;
         });
     }
