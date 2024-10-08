@@ -53,7 +53,7 @@
             }
             
             if (preco <= 0) {
-                alert('O preço do livro não pode ser igual ou infeiror a 0');
+                alert('O preço do livro não pode ser igual ou inferior a 0');
                 form.preco.focus();
                 return false;
             }

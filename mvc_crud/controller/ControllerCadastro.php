@@ -1,8 +1,10 @@
 <?php
 require_once("../model/cadastroLivro.php");
-class cadastroController{
+class cadastroController
+{
     private $cadastro;
-    public function __construtc(){
+
+    public function __construct(){
         $this -> cadastro = new Cadastro();
         $this -> incluir();
     }
@@ -23,3 +25,4 @@ class cadastroController{
     }
 }
 new cadastroController();
+?>

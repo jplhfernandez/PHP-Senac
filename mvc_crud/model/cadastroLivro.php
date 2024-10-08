@@ -61,7 +61,7 @@ class Cadastro extends Banco
     }
 
     public function incluir(){
-        return $this -> setLivro($this->getNome(), $this -> getAutor(), $this -> getQuantidade(), $this -> getPreco(), $this -> getPreco(), $this -> getFlag(), $this -> getData());
+        return $this -> setLivro($this->getNome(), $this -> getAutor(), $this -> getQuantidade(), $this -> getPreco(), $this -> getData());
     }
 
 }
