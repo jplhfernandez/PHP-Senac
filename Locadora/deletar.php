@@ -2,7 +2,8 @@
 include('conexao.php');
 
 // Verifica se o ID foi passado via POST
-if (isset($_POST['id'])) {
+if (isset($_POST['id'])) 
+{
     $id = $_POST['id'];
 
     // Prepara a consulta para deletar o filme
