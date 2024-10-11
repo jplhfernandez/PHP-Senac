@@ -1,5 +1,9 @@
 <!-- CONECTAR NO BANCO E SELECIONAR AS INFORMAÇÕES -->
-
+<?php
+include "conn/connect.php";
+$lista_tipos = $conn -> query ('select * from tipos order by rotulo');
+$rows_tipos = $lista_tipos -> fetch_all();
+?>
     <!-- BOOTSTRAP -->
     <!-- abre a barra de navegação -->  
      
@@ -35,6 +39,13 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
+                            <?php
+                                foreach ($rows_tipos as $row) {?>
+                                    <li><a href="produtos_por_tipo.php?id_tipo=<?php echo $row[0].'&rotulo='.$row[2]?></a></li>
+                                    <?php
+                                }
+                            ?>
+                            
                             <!-- LAÇO DE REPETIÇÃO PARA APARECER OS TIPOS -->
                         </ul>
                     </li>

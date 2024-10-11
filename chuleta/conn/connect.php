@@ -11,5 +11,5 @@
         mysqli_set_charset($conn, $charset);
     }
     catch (Throwable $th){
-        die("Atenção rolou um ERRO".$th)
+        die("Atenção rolou um ERRO".$th);
     }

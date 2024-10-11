@@ -1,4 +1,14 @@
 <!-- CONECTAR COM O BANCO E SELECIONAR AS INFORMAÇÕES -->
+<?php
+// arquivo de conexão de banco
+include 'conn/connect.php';
+
+// consulta para trazer os dados se filtrar
+$id = $_GET['id'];
+$listaDestaque = $conn -> query("select * from produtos where id = $id");
+$linhaDestaque = $listaDestaque -> fetch_assoc();
+$numLinhaDestaque = $listaDestaque -> $num_rows;
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -24,24 +34,25 @@
         </h2>
         <div class="row">
             <!-- COMEÇO DO LAÇO PARA REPETIR AS INFORMAÇÕES -->
+            <?php do{ ?>
                 <div class="col-sm-12 col-md-12">
                     <div class="thumbnail ">
                         <a href="">
                             <img 
-                                src="images/ <!--CAMINHO DA IMAGEM -->" 
-                                alt="<!--TEXTO ALTERNATIVO DA IMAGEM -->" 
+                                src="images/<?php echo $linhaDestaque['imagem']?>" 
+                                alt="<?php echo $linhaDestaque['descricao']?>" 
                                 class="img-responsive img-rounded" 
                                 style="height: 20em ;">
                         </a>
                         <div class="caption text-center">
                             <h3 class="text-danger">
-                                <strong><!--DESCRIÇÃO DA IMAGEM --></strong>
+                                <strong><?php echo $linhaDestaque['descricao']?></strong>
                             </h3>
                             <p class="text-warning">
-                                <strong><!--RÓTULO DA IMAGEM --></strong>
+                                <strong><?php echo $linhaDestaque['rotulo']?></strong>
                             </p>
                             <p class="text-center">
-                                <strong><!--RESUMO DA IMAGEM --> ?></strong>
+                                <strong><?php echo $linhaDestaque['resumo']?></strong>
                             </p>
                             <p>
                                 <a href="index.php" class="btn btn-danger" role="button">
@@ -53,6 +64,7 @@
                     </div>
                 </div>    
             <!-- FIM DO LAÇO PARA REPETIR AS INFORMAÇÕES    -->
+            <?php } while ($linhaDestaque = $linhaDestaque -> fetch_assoc()); ?>
         </div>
     </div>
     
