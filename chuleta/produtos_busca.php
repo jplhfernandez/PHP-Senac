@@ -69,9 +69,9 @@
                         </div>
                     </div>
                 <!-- FIM DO LAÇO -->
-                <?php} while($rowBusca = $listaBusca -> fetch_assoc()); ?>
+                <?php } while($rowBusca = $listaBusca -> fetch_assoc()); ?>
             </div>
-        <?php }?>
+        <?php } ?>
     </div>
 
 
