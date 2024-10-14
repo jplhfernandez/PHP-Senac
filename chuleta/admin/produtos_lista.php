@@ -3,9 +3,9 @@
 include 'acesso_com.php';
 include '../conn/connect.php';
 
-$lista = $conn -> query("select * from produtos");
+$lista = $conn -> query("select * from vw_produtos");
 $row = $lista -> fetch_assoc();
-$row = $lista -> num_rows;
+$rows = $lista -> num_rows;
 
 
 ?>
@@ -57,13 +57,12 @@ $row = $lista -> num_rows;
                         <td>
                             <!-- INFORMAÇÃO -->
                             <?php
-                                if ($row['destaque'] == 'Sim') {
-                                    echo '<span class = "glyphicon glyphicon-star text-danger" aria-hidden="true"></span>';
-                                }
-                                else {
+                                if($row['destaque']=='Sim'){
+                                    echo '<span class="glyphicon glyphicon-star text-danger" aria-hidden="true"></span>';
+                                }else{
                                     echo '<span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>';
                                 }
-                                echo '&nbsp';
+                                echo '&nbsp;';
                                 echo $row['descricao'];
                             ?>
                         </td>
@@ -105,7 +104,7 @@ $row = $lista -> num_rows;
                         </td>
                     </tr>    
                 <!-- FIM DO LAÇO -->
-                <?php }while($row = $lista -> fetch_assoc()); ?>  
+                <?php } while($row = $lista -> fetch_assoc()); ?>  
             </tbody><!-- final corpo da tabela -->
         </table>
     </main>

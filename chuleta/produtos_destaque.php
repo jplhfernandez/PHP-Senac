@@ -44,7 +44,7 @@ $num_linhas = $lista -> num_rows;
                         <button class="btn btn-default disabled" role="button" style="cursor: default;">
                             <?php echo "R$".number_format($row_produtos['valor'],2 , ',','.');?>                            
                         </button>
-                        <a href="produto_detalhes.php?id=<!-- ID -->">
+                        <a href="produto_detalhes.php?id=<?php echo $row_produtos['id']; ?>">
                             <span class="hidden-xs">Saiba mais..</span>
                             <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         </a>

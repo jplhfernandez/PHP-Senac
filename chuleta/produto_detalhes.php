@@ -5,9 +5,9 @@ include 'conn/connect.php';
 
 // consulta para trazer os dados se filtrar
 $id = $_GET['id'];
-$listaDestaque = $conn -> query("select * from produtos where id = $id");
+$listaDestaque = $conn -> query("select * from vw_produtos where id = $id");
 $linhaDestaque = $listaDestaque -> fetch_assoc();
-$numLinhaDestaque = $listaDestaque -> $num_rows;
+$numLinhasDestaque = $listaDestaque -> num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -49,8 +49,7 @@ $numLinhaDestaque = $listaDestaque -> $num_rows;
                                 <strong><?php echo $linhaDestaque['descricao']?></strong>
                             </h3>
                             <p class="text-warning">
-                                <strong><?php echo $linhaDestaque['rotulo']?></strong>
-                            </p>
+                                <strong><?php echo $linhaDestaque['rotulo'] ?></strong>                            </p>
                             <p class="text-center">
                                 <strong><?php echo $linhaDestaque['resumo']?></strong>
                             </p>
@@ -64,7 +63,7 @@ $numLinhaDestaque = $listaDestaque -> $num_rows;
                     </div>
                 </div>    
             <!-- FIM DO LAÇO PARA REPETIR AS INFORMAÇÕES    -->
-            <?php } while ($linhaDestaque = $linhaDestaque -> fetch_assoc()); ?>
+            <?php } while ($linhaDestaque = $listaDestaque -> fetch_assoc()); ?>
         </div>
     </div>
     

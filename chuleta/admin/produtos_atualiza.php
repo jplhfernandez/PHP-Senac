@@ -1,20 +1,17 @@
-<!-- CONECTAR COM O BANCO E SELECIONAR AS INFORMAÇÕES -->
-<?php
+<?php 
 include 'acesso_com.php';
 include '../conn/connect.php';
-
-if ($_POST) { // se o usuario clicar no botao atualizar
-    if ($_FILES['imagemfile']['name']) { //se o usuario escolher uma imagem
-        ulink("../images/".$_POST['imagem_atual']); //apaga a imagem atual do servidor de arquivos
-        $nome_img = $_FILES['imagemfile']['name'];
+if($_POST){ // se o usuário clicou no botão atualizar
+    if ($_FILES['imagemfile']['name']) {// se o usuario escolher uma imagem
+        unlink("../images/".$_POST['imagem_atual']); // apaga a imagem atual do servidor de arquivos
+        $nome_img = $_FILES['imagemfile']['name']; 
         $tmp_img = $_FILES['imagemfile']['tmp_name'];
-        $rand = rand(100001, 999999); //gera um numero aleatorio para imagem
+        $rand = rand(100001,999999); // gera um número aleatório pra imagem
         $dir_img = "../images/".$rand.$nome_img;
-        move_uploaded_file($tmp_img, $dir_img);
-        $nome_img = $rand.$nome_img
-    }
-    else {
-        $nome_img = $_POST['imagem_atual']
+        move_uploaded_file($tmp_img,$dir_img); // transfere a imagem para a pasta 
+        $nome_img = $rand.$nome_img;
+    }else{
+        $nome_img = $_POST['imagem_atual'];
     }
 
     $id = $_POST['id'];
@@ -23,33 +20,35 @@ if ($_POST) { // se o usuario clicar no botao atualizar
     $descricao = $_POST['descricao'];
     $resumo = $_POST['resumo'];
     $valor = $_POST['valor'];
-
-    $update = "update produtos 
-        set tipo_id = $tipo_id,
-        destaque = '$destaque',
-        descricao = '$descricao',
-        resumo = '$resumo',
-        valor = $valor,
-        imagem = '$nome_img',
-        where id = $id;";
+   
+    $update = "update produtos
+                set tipo_id = $id_tipo,
+                destaque = '$destaque',
+                descricao = '$descricao',
+                resumo = '$resumo',
+                valor = $valor,
+                imagem = '$nome_img' 
+                where id = $id;";
     //print_r($update)
-    $resultado = $conn -> query ($update);
-    if ($resultado) {
-        header('location: produtos_lista.php')
+    $resultado = $conn->query($update);
+    if($resultado){
+        header('location:produtos_lista.php');
     }
 }
-
-if ($_GET) {
+if($_GET){
     $id_form = $_GET['id'];
-}
-else {
+}else{
     $id_form = 0;
 }
-$lista = $conn -> query('select * from produtos where id=' .$id_form)
-$row = $lista -> fetch_assoc();
+$lista = $conn->query('select * from produtos where id =' .$id_form);
+$row = $lista->fetch_assoc();
+
+// selecionar a lista de tipos para preencher o <select>
+$listaTipo = $conn->query("select * from tipos order by rotulo");
+$rowTipo = $listaTipo->fetch_assoc();
+$numLinhas = $listaTipo->num_rows;
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -78,7 +77,7 @@ $row = $lista -> fetch_assoc();
                     name="form_insere" enctype="multipart/form-data"
                     id="form_insere">
                          <!-- campo id deve permanecer oculto "hidden"  -->
-                    <input type="hidden" name="id" id="id" value="<!-- ID -->">
+                    <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
                     
                     <label for="id_tipo">Tipo:</label>
                         <div class="input-group">
@@ -86,11 +85,17 @@ $row = $lista -> fetch_assoc();
                                 <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                             </span>
                             <select name="id_tipo" id="id_tipo" class="form-control" required>
-                                <!-- COMEÇO DO LAÇO -->
+                                <?php do{ ?>    
+                                    <option value="<?php echo $rowTipo['id'] ?>" 
+                                       <?php 
+                                            if(!(strcmp($rowTipo['id'],$row['tipo_id']))){
+                                                echo "selected=\"selected\"";
+                                            }
+                                       ?> 
                                     >      
-                                        <!-- RÓTULO -->
+                                        <?php echo $rowTipo['rotulo'] ?>
                                     </option>
-                                <!-- FIM DO LAÇO -->   
+                                <?php }while($rowTipo = $listaTipo->fetch_assoc()); ?>    
                             </select>
                         </div>
                         <label for="destaque">Destaque:</label>
