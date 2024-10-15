@@ -1,11 +1,6 @@
-<?php 
-include 'acesso_com.php';
-include '../conn/connect.php';
-$lista = $conn->query("select * from produtos");
-$row = $lista->fetch_assoc();
-$rows = $lista->num_rows;
+<!-- CONECTAR NO BANCO E SELECIONAR AS INFORMAÇÕES -->
 
-?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -37,39 +32,31 @@ $rows = $lista->num_rows;
             
             <tbody> <!-- início corpo da tabela -->
            	        <!-- início estrutura repetição -->
-                <?php do{ ?>
+                <!-- COMEÇO DO LAÇO -->
                     <tr>
                         <td class="hidden">
-                            <?php  echo $row['id']; ?>
+                            <!-- ID -->
                         </td>
                         <td>
-                            <?php echo $row['rotulo']; ?>
+                            <!-- RÓTULO -->
                             <span class="visible-xs"></span>
                             <span class="hidden-xs"></span>
                         </td>
                         <td>
-                            <?php 
-                                if($row['destaque']=='Sim'){
-                                    echo '<span class="glyphicon glyphicon-star text-danger" aria-hidden="true"></span>';
-                                }else{
-                                    echo '<span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>';
-                                }
-                                echo '&nbsp;';
-                                echo $row['descricao'];
-                            ?>
+                            <!-- INFORMAÇÃO -->
                         </td>
                         <td>
-                            <?php echo $row['resumo']; ?>
+                            <!-- RESUMO -->
                         </td>
                         <td>
-                           <?php echo number_format($row['valor'],2,',','.'); ?>
+                           <!-- VALOR -->
                         </td>
                         <td>
-                            <img src="../images/<?php echo $row['imagem']; ?>" width="100px">
+                            <img src="../images/<!-- IMAGEM -->" width="100px">
                         </td>
                         <td>
                             <a
-                                href="produtos_atualiza.php?id=<?php echo $row['id'] ?>" 
+                                href="produtos_atualiza.php?id=<!-- ID -->" 
                                 role="button" 
                                 class="btn btn-warning btn-block btn-xs"
                             >
@@ -77,25 +64,21 @@ $rows = $lista->num_rows;
                                 <span class="hidden-xs">ALTERAR</span>    
                             </a>
                                 <!-- não mostrar o botão excluir se o produto estiver em destaque -->
-                                <?php  
-                                    $regra = $conn->query("select destaque from vw_produtos where id =".$row['id']);
-                                    $regraRow = $regra->fetch_assoc();
-                                ?>
+                                <!-- BOTÃO EXCLUIR -->
 
                             <button 
-                                data-nome="<?php echo $row['descricao']; ?>"
-                                data-id="<?php echo $row['id']; ?>"
+                                data-nome="<!-- DESCRIÇÃO -->"
+                                data-id="<!-- ID -->"
                                 class="delete btn btn-xs btn-block btn-danger
-                                <?php echo $regraRow['destaque']=='Sim'?'hidden':'' ?>
+                                <!-- DESTAQUE -->
                                 "     
                             >
                                 <span class="glyphicon glyphicon-trash"></span>
                                 <span class="hidden-xs">EXCLUIR</span>
-
                             </button>
                         </td>
                     </tr>    
-                <?php }while($row = $lista->fetch_assoc()); ?>  
+                <!-- FIM DO LAÇO -->  
             </tbody><!-- final corpo da tabela -->
         </table>
     </main>

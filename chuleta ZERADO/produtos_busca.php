@@ -1,10 +1,4 @@
-<?php 
-include "conn/connect.php"; // conecta banco
-$busca = $_GET['buscar'];
-$listaBusca = $conn->query("select * from produtos where descricao like '%$busca%' or resumo like '%$busca%' order by descricao asc");
-$rowBusca = $listaBusca->fetch_assoc();
-$numLinhas = $listaBusca->num_rows;
-?>
+<!-- CONECTAR COM O BANCO E SELECIONAR AS INFORMAÇÕES -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,16 +13,17 @@ $numLinhas = $listaBusca->num_rows;
     <?php include "menu_publico.php" ?>
     <div class="container">
         <!-- monstrar se a consulta retornar vazio -->
-        <?php if($numLinhas == 0){ ?>
+        <!-- COMEÇO DA VERIFICAÇÃO  -->
             <h2 class="breadcrumb alert-danger">
                 <a href="javascript:window.history.go(-1)" class="btn btn-danger">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 Não há produtos relacionados com <strong> "<?php echo $busca ?>"</strong>
             </h2>
-        <?php }?>
+        <!-- FIM DA VERIFICAÇÃO -->
+
         <!-- mostrar se a consulta retornou produtos  -->
-        <?php if($numLinhas>0){?>
+        <!-- COMEÇO DA VERIFICAÇÃO  -->
             <h2 class="breadcrumb alert-danger">
                 <a href="javascript:window.history.go(-1)" class="btn btn-danger">
                     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -36,43 +31,38 @@ $numLinhas = $listaBusca->num_rows;
                 Busca por <strong><?php echo $busca;?></strong>
             </h2>
             <div class="row">
-                <?php do{ ?>
+                <!-- COMEÇO DO LAÇO -->
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="produto_detalhes.php?id=<?php echo $rowBusca['id']?>">
-                                <img src="images/<?php echo $rowBusca['imagem']?>" class="img-responsive img-rounded">
+                            <a href="produto_detalhes.php?id=<!-- ID -->">
+                                <img src="images/<!-- CAMINHO DA IMAGEM -->" class="img-responsive img-rounded">
                             </a>
                             <div class="caption text-right">
                                 <h3 class="text-danger">
-                                    <strong><?php echo $rowBusca['descricao']?></strong>
+                                    <strong><!-- DESCRIÇÃO --></strong>
                                 </h3>
                                 <p class="text-warning">
-                                    <strong><?php echo $rowBusca['rotulo']?></strong>
+                                    <strong><!-- RÓTULO --></strong>
                                 </p>
                                 <p class="text-left">
-                                   <?php echo mb_strimwidth($rowBusca['resumo'],0,42,'...'); ?>
+                                   <!-- RESUMO -->
                                 </p>
                                 <p>
                                     <button class="btn btn-default disabled" role="button" style="cursor:default;">
-                                        <?php echo "R$ ".number_format($rowBusca['valor'], 2,',','.'); ?>
+                                        <!-- VALOR -->
                                     </button>
-                                    <a href="produto_detalhes.php?id=<?php echo $rowBusca['id'];?>">
+                                    <a href="produto_detalhes.php?id=<!-- ID  -->">
                                         <span class="hidden-xs">Saiba mais...</span>
                                         <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                                     </a>
                                 </p>
-                            </div>
-
-                            
+                            </div> 
                         </div>
                     </div>
-                <?php }while($rowBusca = $listaBusca->fetch_assoc()); ?>
+                <!-- FIM DO LAÇO -->
             </div>
-        <?php }?>
+            <!-- FIM DA VERIFICAÇÃO  -->
     </div>
-
-
-
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -1,39 +1,6 @@
-<?php 
-include 'acesso_com.php';
-include '../conn/connect.php';
-if($_POST){
-    if(isset($_POST['enviar'])){
-        $nome_img = $_FILES['imagemfile']['name'];
-        $tmp_img = $_FILES['imagemfile']['tmp_name'];
-        $rand = rand(100001,999999);
-        $dir_img = "../images/".$rand.$nome_img;
-        move_uploaded_file($tmp_img,$dir_img);
-    }
-
-    $id = $_POST['id_tipo'];
-    $destaque = $_POST['destaque'];
-    $descricao = $_POST['descricao'];
-    $resumo = $_POST['resumo'];
-    $valor = $_POST['valor'];
-    $imagem =  $rand.$nome_img;
-    
-    $insereProduto = "insert produtos 
-                    (tipo_id, descricao, resumo, valor, imagem, destaque)
-                    values
-                    ($id,'$descricao', '$resumo', $valor, '$imagem', '$destaque') 
-                    ";
-    $resultado = $conn->query($insereProduto);            
-    if(mysqli_insert_id($conn)){
-        header('location:produtos_lista.php');
-    }
-}
-// selecionar a lista de tipos para preencher o <select>
-$listaTipo = $conn->query("select * from tipos order by rotulo");
-$rowTipo = $listaTipo->fetch_assoc();
-$numLinhas = $listaTipo->num_rows;
+<!-- CONECTAR COM O BANCO E SELECIONAR AS INFORMAÇÕES -->
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -58,29 +25,35 @@ $numLinhas = $listaTipo->num_rows;
             </h2>
             <div class="thumbnail">
                 <div class="alert alert-danger" role="alert">
-                    <form action="produtos_insere.php" method="post" 
+                    <form action="produtos_atualiza.php" method="post" 
                     name="form_insere" enctype="multipart/form-data"
                     id="form_insere">
-                        <label for="id_tipo">Tipo:</label>
+                         <!-- campo id deve permanecer oculto "hidden"  -->
+                    <input type="hidden" name="id" id="id" value="<!-- ID -->">
+                    
+                    <label for="id_tipo">Tipo:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                             </span>
                             <select name="id_tipo" id="id_tipo" class="form-control" required>
-                                <?php do{ ?>
-                                    <option value="<?php echo $rowTipo['id']; ?>">
-                                    <?php echo $rowTipo['rotulo']; ?>
+                                <!-- COMEÇO DO LAÇO -->
+                                    >      
+                                        <!-- RÓTULO -->
                                     </option>
-                                <?php }while($rowTipo = $listaTipo->fetch_assoc()); ?>
+                                <!-- FIM DO LAÇO -->   
                             </select>
                         </div>
                         <label for="destaque">Destaque:</label>
                         <div class="input-group">
                             <label for="destaque_s" class="radio-inline">
-                                <input type="radio" name="destaque" id="destaque" value="Sim">Sim
+                                <input type="radio" name="destaque" id="destaque" value="Sim" 
+                                
+                                <?php  echo $row['destaque']=="Sim"?"checked":null; ?> >Sim
                             </label>
                             <label for="destaque_n" class="radio-inline">
-                                <input type="radio" name="destaque" id="destaque" value="Não" checked>Não
+                                <input type="radio" name="destaque" id="destaque" value="Não" 
+                                <?php echo $row['destaque']=="Não"?"checked":null; ?> >Não
                             </label>
                         </div>
                             <label for="descricao">Descrição:</label>     
@@ -90,7 +63,7 @@ $numLinhas = $listaTipo->num_rows;
                            </span>
                            <input type="text" name="descricao" id="descricao" 
                                 class="form-control" placeholder="Digite a descrição do Produto"
-                                maxlength="100" required>
+                                maxlength="100" value="<?php echo $row['descricao'];  ?>">
                         </div>   
                         
                         <label for="resumo">Resumo:</label>     
@@ -101,7 +74,9 @@ $numLinhas = $listaTipo->num_rows;
                            <textarea  name="resumo" id="resumo"
                                 cols="30" rows="8"
                                 class="form-control" placeholder="Digite os detalhes do Produto"
-                                required></textarea>
+                                >
+                                <?php echo $row['resumo']; ?>
+                            </textarea>
                         </div> 
                         
                         <label for="valor">Valor:</label>     
@@ -110,9 +85,14 @@ $numLinhas = $listaTipo->num_rows;
                                 <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
                            </span>
                            <input type="number" name="valor" id="valor" 
-                                class="form-control" required min="0" step="0.01">
+                                class="form-control" required min="0" step="0.01" value="<?php echo $row['valor']; ?>">
                         </div>   
-                        <label for="imagem">Imagem:</label>    
+
+                        <label for="imagem_atual">Imagem Atual:</label> 
+                        <img src="../images/<?php echo $row['imagem']; ?>" alt="" srcset="">
+                        <input type="hidden" name="imagem_atual" id="imagem_atual" value="<?php echo $row['imagem']; ?>" >
+
+                        <label for="imagem">Imagem Nova:</label>    
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
@@ -122,7 +102,7 @@ $numLinhas = $listaTipo->num_rows;
                         </div>
 
                         <br>
-                        <input type="submit" name="enviar" id="enviar" class="btn btn-danger btn-block" value="Cadastrar">
+                        <input type="submit" name="atualizar" id="atualizar" class="btn btn-danger btn-block" value="Atualizar">
                     </form>
                 </div>
             </div>

@@ -1,13 +1,4 @@
-<?php 
-// arquivo de conexão de banco
-include 'conn/connect.php';
-
-// consulta para trazer os dados se filtrar
-$id  = $_GET['id'];
-$listaDestaque = $conn->query("select * from produtos where id = $id");
-$linhaDestaque = $listaDestaque->fetch_assoc() ;
-$numLinhasDestaque = $listaDestaque->num_rows;
-?>
+<!-- CONECTAR COM O BANCO E SELECIONAR AS INFORMAÇÕES -->
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -32,25 +23,25 @@ $numLinhasDestaque = $listaDestaque->num_rows;
             </a>
         </h2>
         <div class="row">
-            <?php do{ ?>
+            <!-- COMEÇO DO LAÇO PARA REPETIR AS INFORMAÇÕES -->
                 <div class="col-sm-12 col-md-12">
                     <div class="thumbnail ">
                         <a href="">
                             <img 
-                                src="images/<?php echo $linhaDestaque['imagem'] ?>" 
-                                alt="<?php echo $linhaDestaque['descricao'] ?>" 
+                                src="images/ <!--CAMINHO DA IMAGEM -->" 
+                                alt="<!--TEXTO ALTERNATIVO DA IMAGEM -->" 
                                 class="img-responsive img-rounded" 
                                 style="height: 20em ;">
                         </a>
                         <div class="caption text-center">
                             <h3 class="text-danger">
-                                <strong><?php echo $linhaDestaque['descricao'] ?></strong>
+                                <strong><!--DESCRIÇÃO DA IMAGEM --></strong>
                             </h3>
                             <p class="text-warning">
-                                <strong><?php echo $linhaDestaque['rotulo'] ?></strong>
+                                <strong><!--RÓTULO DA IMAGEM --></strong>
                             </p>
                             <p class="text-center">
-                                <strong><?php echo $linhaDestaque['resumo'] ?></strong>
+                                <strong><!--RESUMO DA IMAGEM --> ?></strong>
                             </p>
                             <p>
                                 <a href="index.php" class="btn btn-danger" role="button">
@@ -61,7 +52,7 @@ $numLinhasDestaque = $listaDestaque->num_rows;
                         </div>
                     </div>
                 </div>    
-            <?php } while($linhaDestaque = $listaDestaque->fetch_assoc()); ?>  
+            <!-- FIM DO LAÇO PARA REPETIR AS INFORMAÇÕES    -->
         </div>
     </div>
     
