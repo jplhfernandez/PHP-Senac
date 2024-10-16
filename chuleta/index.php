@@ -44,8 +44,7 @@
             infinity:true,
             slidesToShow:3,
             slidesToScroll:3 
-        });
-        
+        }); 
     });
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick.min.js"></script>
