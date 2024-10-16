@@ -2,7 +2,8 @@
 session_start();
 require 'Usuario.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+{
     if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
@@ -12,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "Login falhou!";
         }
-    } elseif (isset($_POST['registrar'])) {
+    } 
+    else if (isset($_POST['registrar'])) 
+    {
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
