@@ -10,7 +10,7 @@
     <title>Busca por palavra</title>
 </head>
 <body class="fundofixo">
-    <?php include "menu_publico.php" ?>
+    <?php include "../view/menu_publico.php" ?>
     <div class="container">
         <!-- monstrar se a consulta retornar vazio -->
         <!-- COMEÇO DA VERIFICAÇÃO  -->
@@ -51,7 +51,7 @@
                                     <button class="btn btn-default disabled" role="button" style="cursor:default;">
                                         <!-- VALOR -->
                                     </button>
-                                    <a href="produto_detalhes.php?id=<!-- ID  -->">
+                                    <a href="../view/produto_detalhes.php?id=<!-- ID  -->">
                                         <span class="hidden-xs">Saiba mais...</span>
                                         <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                                     </a>

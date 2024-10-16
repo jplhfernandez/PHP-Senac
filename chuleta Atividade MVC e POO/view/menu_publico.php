@@ -14,7 +14,7 @@
                    <span class="icon-bar"></span>  
                 </button>
                 <a href="index.php" class="navbar-brand">
-                    <img src="images/logo-chuleta.png" alt="Logotipo Chuleta Quente">
+                    <img src="../public/images/logo-chuleta.png" alt="Logotipo Chuleta Quente">
                 </a>
             </div>
             <!-- Fecha agrupamento Mobile -->
