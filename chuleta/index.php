@@ -27,8 +27,8 @@
         <?php include 'produtos_geral.php'; ?>
         <!-- rodapé -->
         <footer class="panel-footer" style="background: none;">
-            <?php include 'rodape.php'; ?> 
-            <a name="contato"></a>
+        <?php include 'rodape.php'; ?> 
+        <a name="contato"></a>
         </footer>
 
     </main>
