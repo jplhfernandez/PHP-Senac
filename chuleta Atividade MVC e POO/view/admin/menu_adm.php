@@ -9,8 +9,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.php" class="navbar-brand">
-                <img src="../images/logo-chuleta.png" alt="">
+            <a href="../controller/admin/index.php" class="navbar-brand">
+                <img src="../public/images/logo-chuleta.png" alt="">
             </a>
         </div>
         <!-- Fecha Agrupamento para exibição Mobile -->
@@ -23,16 +23,16 @@
                     </button>
                 </li>
                 <li class="active"><a href="index.php">ADMIN</a></li>
-                <li><a href="produtos_lista.php">PRODUTOS</a></li>
-                <li><a href="tipos_lista.php">TIPOS</a></li>
-                <li><a href="usuarios_lista.php">USUÁRIOS</a></li>
+                <li><a href="..view/admin/produtos_lista.php">PRODUTOS</a></li>
+                <li><a href="..view/admin/tipos_lista.php">TIPOS</a></li>
+                <li><a href="..view/admin/usuarios_lista.php">USUÁRIOS</a></li>
                 <li class="active">
-                    <a href="../index.php">
+                    <a href="../view/admin/index.php">
                         <span class="glyphicon glyphicon-home"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="logout.php">
+                    <a href="..controller/admin/logout.php">
                         <span class="glyphicon glyphicon-log-out"></span>
                     </a>
                 </li>

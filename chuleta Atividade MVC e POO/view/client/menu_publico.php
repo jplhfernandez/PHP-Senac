@@ -55,7 +55,7 @@
                     </form>        
                     <!-- fim formulário de busca -->
                     <li class="active">
-                        <a href="admin/index.php">
+                        <a href="../view/admin/index.php">
                             <span class="glyphicon glyphicon-user">&nbsp;ADMIN/CLIENTE</span>
                         </a>
                     </li>

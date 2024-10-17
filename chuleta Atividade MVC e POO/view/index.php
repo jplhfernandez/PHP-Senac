@@ -14,20 +14,20 @@
 
 <body class="fundofixo">
     <!-- area de menu -->
-    <?php include '../view/menu_publico.php'; ?>
+    <?php include '../view/client/menu_publico.php'; ?>
     <a name="home">&nbsp;</a>
     <main class="container">
         <!-- area de carousel -->
-        <?php include '../view/carousel.php'; ?>
+        <?php include '../view/client/carousel.php'; ?>
         <!-- area de destaque -->
         <a class="pt-6" name="destaques">&nbsp;</a>
-        <?php include '../view/produtos_destaque.php'; ?>
+        <?php include '../view/client/produtos_destaque.php'; ?>
         <!-- area geral de produtos -->
         <a class="pt-6" name="produtos" >&nbsp;</a>
-        <?php include '../view/produtos_geral.php'; ?>
+        <?php include '../view/client/produtos_geral.php'; ?>
         <!-- rodapé -->
         <footer class="panel-footer" style="background: none;">
-            <?php include '../view/rodape.php'; ?> 
+            <?php include '../view/client/rodape.php'; ?> 
             <a name="contato"></a>
         </footer>
 
