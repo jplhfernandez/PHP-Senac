@@ -8,7 +8,7 @@
     // verificar se o usuário esta logado na sessão
     if(!isset($_SESSION['login_usuario'])){
         //se não existir, redirecionamos a sessão por segurança
-        header('location: ../view/admin/login.php'); //redirecionamento
+        header('location: login.php'); //redirecionamento
         exit;
     }
  
@@ -16,7 +16,7 @@
     if(!isset($_SESSION['nome_da_sessao'])
         or ($_SESSION['nome_da_sessao']!=$nome_da_sessao)){
             session_destroy();
-            header('location: ../view/admin/login.php');
+            header('location: login.php');
     }
 ?>
  

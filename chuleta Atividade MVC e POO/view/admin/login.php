@@ -5,12 +5,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="30;URL=../index.php">
+    <meta http-equiv="refresh" content="30;URL=../view/admin/index.php">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/2495680ceb.js" crossorigin="anonymous"></script>
     <!-- Link para CSS específico -->
-    <link rel="stylesheet" href="../css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/estilo.css" type="text/css">
     
     <title>Chuleta Quente - Login</title>
 </head>
