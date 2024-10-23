@@ -6,15 +6,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/estilo.css">
     <title>Detalhes Produto</title>
 </head>
 <body class="fundofixo">
-    <?php include 'menu_publico.php'; ?>
+    <?php include 'ViewMenuPublico.php'; ?>
     <div class="container">
         <h2 class="breadcrumb alert-danger">
-            <a href="index.php">
+            <a href="../index.php">
                 <button class="btn btn-danger">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
@@ -44,7 +44,7 @@
                                 <strong><!--RESUMO DA IMAGEM --> ?></strong>
                             </p>
                             <p>
-                                <a href="index.php" class="btn btn-danger" role="button">
+                                <a href="../index.php" class="btn btn-danger" role="button">
                                     <span class="hidden-xs">Retornar</span>
                                     <span class="visible-xs glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                 </a>

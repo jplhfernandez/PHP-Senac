@@ -5,7 +5,7 @@
 <!-- ADM PRODUTOS -->
 <div class="col-sm-6 col-md-4">
     <div class="thumbnail alert-danger">
-        <img src="../public/imagens/icone_produtos.png" alt="">
+        <img src="../../public/imagens/icone_produtos.png" alt="">
         <br>
         <div class="alert-danger">
 
@@ -19,14 +19,14 @@
 
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group">
-                    <a href="../view/admin/produtos_lista.php">
+                    <a href="ViewListaProduto.php">
                         <button class="btn btn-danger">
                             LISTAR
                         </button>
                     </a>
                 </div><!-- fecha btn-group -->
                 <div class="btn-group">
-                    <a href="../controller/produtos_insere.php">
+                    <a href="../../controller/ControllerInsereProduto.php">
                         <button class="btn btn-danger">
                             INSERIR
                         </button>
@@ -42,7 +42,7 @@
 <!-- ADM TIPOS -->
 <div class="col-sm-6 col-md-4">
     <div class="thumbnail alert-warning">
-        <img src="../public/imagens/icone_tipos.png" alt="">
+        <img src="../../public/imagens/icone_tipos.png" alt="">
         <br>
         <div class="alert-warning">
             <div class="btn-group btn-group-justified" role="group">
@@ -55,14 +55,14 @@
 
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group">
-                    <a href="../view/admin/tipos_lista.php">
+                    <a href="ViewListaTipo.php">
                         <button class="btn btn-warning">
                             LISTAR
                         </button>
                     </a>
                 </div><!-- fecha btn-group -->
                 <div class="btn-group">
-                    <a href="../controller/tipos_insere.php">
+                    <a href="../.php">
                         <button class="btn btn-warning">
                             INSERIR
                         </button>

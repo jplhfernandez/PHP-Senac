@@ -94,13 +94,4 @@
                 </form>  
             </div>
         </div>
-        <div class="col-sm-12">
-            <div class="panel-footer" style="background: none;">
-                <h6 class="text-danger text-center">
-                    Desenvolvido por Well&trade; 2024
-                    <br>
-                    <a href="https://www.softkleen.com.br" target="_blank">softkleen.com.br</a>
-                </h6>
-            </div>
-        </div>
     </div>

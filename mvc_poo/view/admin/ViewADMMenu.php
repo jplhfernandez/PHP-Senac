@@ -23,16 +23,16 @@
                     </button>
                 </li>
                 <li class="active"><a href="index.php">ADMIN</a></li>
-                <li><a href="..view/admin/produtos_lista.php">PRODUTOS</a></li>
-                <li><a href="..view/admin/tipos_lista.php">TIPOS</a></li>
-                <li><a href="..view/admin/usuarios_lista.php">USUÁRIOS</a></li>
+                <li><a href="ViewListaProduto.php">PRODUTOS</a></li>
+                <li><a href="ViewListaTipo.php">TIPOS</a></li>
+                <li><a href="ViewListaUsuario.php">USUÁRIOS</a></li>
                 <li class="active">
-                    <a href="../view/admin/index.php">
+                    <a href="index.php">
                         <span class="glyphicon glyphicon-home"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="..controller/admin/logout.php">
+                    <a href="..controller/ControllerLogout.php">
                         <span class="glyphicon glyphicon-log-out"></span>
                     </a>
                 </li>

@@ -10,7 +10,7 @@
     <title>Busca por palavra</title>
 </head>
 <body class="fundofixo">
-    <?php include "../view/menu_publico.php" ?>
+    <?php include "ViewMenuPublico.php" ?>
     <div class="container">
         <!-- monstrar se a consulta retornar vazio -->
         <!-- COMEÇO DA VERIFICAÇÃO  -->
@@ -34,7 +34,7 @@
                 <!-- COMEÇO DO LAÇO -->
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="produto_detalhes.php?id=<!-- ID -->">
+                            <a href="ViewProdutoDetalhes.php?id=<!-- ID -->">
                                 <img src="images/<!-- CAMINHO DA IMAGEM -->" class="img-responsive img-rounded">
                             </a>
                             <div class="caption text-right">
@@ -51,7 +51,7 @@
                                     <button class="btn btn-default disabled" role="button" style="cursor:default;">
                                         <!-- VALOR -->
                                     </button>
-                                    <a href="../view/produto_detalhes.php?id=<!-- ID  -->">
+                                    <a href="..ViewProdutoDetalhes.php?id=<!-- ID  -->">
                                         <span class="hidden-xs">Saiba mais...</span>
                                         <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                                     </a>

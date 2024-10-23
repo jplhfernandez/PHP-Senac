@@ -14,7 +14,7 @@
                    <span class="icon-bar"></span>  
                 </button>
                 <a href="index.php" class="navbar-brand">
-                    <img src="../public/images/logo-chuleta.png" alt="Logotipo Chuleta Quente">
+                    <img src="../../public/images/logo-chuleta.png" alt="Logotipo Chuleta Quente">
                 </a>
             </div>
             <!-- Fecha agrupamento Mobile -->
@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="menupublico">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a href="index.php">
+                        <a href="../index.php">
                             <span class="glyphicon glyphicon-home"></span>
                         </a>
                     </li>
@@ -41,7 +41,7 @@
                     <!-- Fim do dropdown -->
                     <li><a href="index.php#contato">CONTATO</a></li>
                     <!-- início formulário de busca -->
-                    <form action="produtos_busca.php" method="get" name="form-busca" 
+                    <form action="ViewProdutoBusca.php" method="get" name="form-busca" 
                     id="form-busca" class="navbar-form navbar-left" role="search">
                         <div class="input-group">
                             <input type="search" name="buscar" id="buscar" size="9" class="form-control"
@@ -55,7 +55,7 @@
                     </form>        
                     <!-- fim formulário de busca -->
                     <li class="active">
-                        <a href="../view/admin/index.php">
+                        <a href="../../view/admin/index.php">
                             <span class="glyphicon glyphicon-user">&nbsp;ADMIN/CLIENTE</span>
                         </a>
                     </li>

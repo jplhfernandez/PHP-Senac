@@ -1,5 +1,5 @@
 <?php 
-   include "../../model/acesso_com.php";
+   include "../../model/ModelAcesso.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -11,7 +11,7 @@
     <title>Área Administrativa - Chuleta Quente</title>
 </head>
 <body>
-    <?php include 'menu_adm.php'; ?>
-    <?php include 'adm_options.php'; ?>
+    <?php include 'ViewADMMenu.php'; ?>
+    <?php include 'ViewADMOpções.php'; ?>
 </body>
 </html>

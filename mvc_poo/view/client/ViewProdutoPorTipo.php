@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/estilo.css">
     <title>Chuleta Quente Churrascaria</title>
 </head>
 
 <body class="fundofixo">
-    <?php include "menu_publico.php" ?>
+    <?php include "ViewMenuPublico.php" ?>
     <div class="container">
 
 <!-- Mostrar se a consulta retornar vazio -->
@@ -37,7 +37,7 @@
         <!-- COMEÇO DO LAÇO -->
             <div class="col-sm-6 col-md-4 ">
                 <div class="thumbnail ">
-                   <a href="produto_detalhes.php?id=<!-- ID -->">
+                   <a href="ViewProdutoDetalhes.php?id=<!-- ID -->">
                        <img src="images/<!-- CAMINHO DA IMAGEM -->" alt="" class="img-responsive img-rounded"> 
                    </a> 
                   <div class="caption text-right bg-success"> 
@@ -54,7 +54,7 @@
                         <button class="btn btn-default disabled" role="button" style="cursor: default;">
                             <!-- VALOR -->
                         </button>
-                        <a href="produto_detalhes.php?id=<!-- ID -->">
+                        <a href="ViewProdutoDetalhes.php?id=<!-- ID -->">
                             <span class="hidden-xs">Saiba mais..</span>
                             <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         </a>
