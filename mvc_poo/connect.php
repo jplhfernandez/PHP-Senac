@@ -1,15 +1,16 @@
 <?php
-    $host = "localhost";
-    $database = "tincphpdb01";
+    $localhost = "localhost";
     $user = "root";
-    $pass = "";
-    $charset = "utf8";
-    $port = "3306";
-
+    $passw = "";
+    $banco = "tincphpdb01";
+    
+    global $pdo;
     try{
-        $conn = new mysqli($host, $user, $pass, $database, $port);
-        mysqli_set_charset($conn, $charset);
+        //orientado a objetos
+        $pdo = new PDO("mysql:dbname=".$banco."; host=".$localhost,$user,$passw);
+        $pdo -> setAttribute(PDO:: ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
+    }catch(PDOException $erro){
+        echo "Erro".$erro->getmessage();
+        exit;
     }
-    catch (Throwable $th){
-        die("Atenção rolou um ERRO".$th);
-    }
+?>
