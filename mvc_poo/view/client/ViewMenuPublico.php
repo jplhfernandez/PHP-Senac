@@ -14,7 +14,7 @@
                    <span class="icon-bar"></span>  
                 </button>
                 <a href="index.php" class="navbar-brand">
-                    <img src="../../public/images/logo-chuleta.png" alt="Logotipo Chuleta Quente">
+                    <img src="public/images/logo-chuleta.png" alt="Logotipo Chuleta Quente">
                 </a>
             </div>
             <!-- Fecha agrupamento Mobile -->
@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="menupublico">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a href="../index.php">
+                        <a href="index.php">
                             <span class="glyphicon glyphicon-home"></span>
                         </a>
                     </li>
@@ -55,7 +55,7 @@
                     </form>        
                     <!-- fim formulário de busca -->
                     <li class="active">
-                        <a href="../../view/admin/index.php">
+                        <a href="view/admin/index.php">
                             <span class="glyphicon glyphicon-user">&nbsp;ADMIN/CLIENTE</span>
                         </a>
                     </li>

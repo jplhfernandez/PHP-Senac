@@ -91,14 +91,14 @@
 
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group">
-                    <a href="../view/admin/usuarios_lista.php">
+                    <a href="ViewListaUsuario.php">
                         <button class="btn btn-info">
                             LISTAR
                         </button>
                     </a>
                 </div><!-- fecha btn-group -->
                 <div class="btn-group">
-                    <a href="../controller/usuarios_insere.php">
+                    <a href="../../controller/usuarios_insere.php">
                         <button class="btn btn-info">
                             INSERIR
                         </button>
