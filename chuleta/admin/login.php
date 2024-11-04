@@ -10,7 +10,8 @@ if ($_POST) {
     $rowLogin = $loginRes -> fetch_assoc();
     $numRow = $loginRes -> num_rows;
     //se a sessao n existir
-    if (!isset($_SESSION)) {
+    if (!isset($_SESSION)) 
+    {
         $sessaoAntiga = session_name('chulettaaa');
         session_start();
         $session_name_new = session_name();
@@ -19,11 +20,14 @@ if ($_POST) {
         $_SESSION['login_usuario'] = $login;
         $_SESSION['nivel_usuario'] = $rowLogin['nivel'];
         $_SESSION['nome_da_sessao'] = session_name();
-        if ($rowLogin['nivel'] == 'sup') {
+        if ($rowLogin['nivel'] == 'sup') 
+        {
             echo "<script>window.open('index.php','_self')</script>";
         }
-        else {
-            echo "<script>window.open('../cliente/index.php?cliente=".$login."','_self')</script>";        }
+        else 
+        {
+            echo "<script>window.open('../cliente/index.php?cliente=".$login."','_self')</script>";        
+        }
     }
     else {
         echo "<script>window.open('invasor.php','_self')</script>";
